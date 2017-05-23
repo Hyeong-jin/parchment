@@ -30,10 +30,7 @@
     "npm": ">= 3.5"
   },
   "license": "BSD-3-Clause",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/quilljs/parchment"
-  },
+  "repository": "https://github.com/quilljs/parchment",
   "scripts": {
     "build": "webpack --config webpack.conf.js",
     "prepublish": "npm run build",
