@@ -10,9 +10,9 @@ Quill이 Parchment의 문서 모델을 사용하는 방법에 대한 안내는 [
 
 ## Blots
 
-Blot은 Parchment 문서의 기본 구성 요소입니다. [Block](#block-blot), [Inline](#inline-blot) 및 [Embed](#embed-blot)와 같은 몇 가지 기본 구현이 제공됩니다. 일반적으로 처음부터 빌드하는 대신 이 중 하나를 확장하는 것이 좋습니다. 구현 후 블롯을 사용하기 전에 등록([registered](#registry))해야합니다.
+Blot은 Parchment 문서의 기본 구성 요소입니다. [Block](#block-blot), [Inline](#inline-blot) 및 [Embed](#embed-blot)와 같은 몇 가지 기본 구현이 제공됩니다. 일반적으로 처음부터 빌드하는 대신 이 중 하나를 확장하는 것이 좋습니다. 구현 후 Blot을 사용하기 전에 등록([registered](#registry))해야합니다.
 
-최소한 Blot은 정적 `blotName`으로 이름을 지정하고 `tagName` 또는 `className`과 연결해야합니다. Blot이 태그와 클래스 모두 정의 된 경우 클래스가 우선하지만 태그는 폴백으로 사용될 수 있습니다. 블롯은 인라인인지 또는 블럭인지를 결정하는 [scope](#registry)도 가져야합니다.
+최소한 Blot은 정적 `blotName`으로 이름을 지정하고 `tagName` 또는 `className`과 연결해야합니다. Blot이 태그와 클래스 모두 정의 된 경우 클래스가 우선하지만 태그는 폴백으로 사용될 수 있습니다. Blot은 인라인인지 또는 블럭인지를 결정하는 [scope](#registry)도 가져야합니다.
 
 ```typescript
 class Blot {
@@ -69,11 +69,11 @@ class Blot {
   // 그 위치에 대한 색인을 반환합니다.
   index(node: Node, offset: number): number;
 
-  // 블롯 내의 위치에 인덱스가 주어지면 DOM 선택 범위에서
+  // Blot 내의 위치에 인덱스가 주어지면 DOM 선택 범위에서
   // 소모 할 수있는 해당 위치를 나타내는 노드와 오프셋을 반환합니다.
   position(index: number, inclusive: boolean): [Node, number];
 
-  // 이 블롯이 나타내는 반환 값
+  // 이 Blot이 나타내는 반환 값
   // update()에 의해 감지 될 수있는 API 또는
   // 사용자 변경과의 상호 작용없이 변경하면 안됩니다.
   value(): any;
@@ -103,7 +103,7 @@ class Blot {
   // domNode가 이 Blot 유형 인지 확인하지 않아도됩니다.
   static formats(domNode: Node);
 
-  // 블롯에 형식을 적용합니다. 자식이나 다른 blot에 옮겨서는 안됩니다.
+  // Blot에 형식을 적용합니다. 자식이나 다른 blot에 옮겨서는 안됩니다.
   format(format: name, value: any);
 
   // 애트리뷰트를 포함하는 Blot이 나타내는 형식을 돌려줍니다.
@@ -159,7 +159,7 @@ Quill은 또한 [소스 코드](https://github.com/quilljs/quill/tree/develop/fo
 
 ### Inline Blot
 
-인라인 범위가 지정된 형식화 가능 부모 블롯의 기본 구현입니다. 기본적으로 인라인 블롯의 서식을 지정하면 다른 블롯이 자신을 감싸서 호출을 해당 하위 항목으로 전달합니다.
+인라인 범위가 지정된 형식화 가능한 부모 Blot의 기본 구현입니다. 기본적으로 인라인 Blot의 서식을 지정하면 다른 Blot이 자신을 감싸서 호출을 해당 하위 항목으로 전달합니다.
 
 ### Embed Blot
 
@@ -191,9 +191,9 @@ class Attributor {
 }
 ```
 
-참고로 사용자 정의 기여자는 Blots와 같은 클래스 정의가 아닌 인스턴스입니다. Blot과 마찬가지로 처음부터 새로 만드는 대신 Base [Attributor](#attributor), [Class Attributor](#class-attributor) 또는 [Style Attributor](#style-attributor) 같은 기존 구현을 사용하는 것이 좋습니다.
+참고로 사용자 정의 Attributor는 Blots와 같은 클래스 정의가 아닌 인스턴스입니다. Blot과 마찬가지로 처음부터 새로 만드는 대신 Base [Attributor](#attributor), [Class Attributor](#class-attributor) 또는 [Style Attributor](#style-attributor) 같은 기존 구현을 사용하는 것이 좋습니다.
 
-기여자에 대한 구현은 놀라 울 정도로 간단하며 [소스 코드](https://github.com/quilljs/parchment/tree/master/src/attributor)는 다른 이해의 원천이 될 수 있습니다.
+Attributor에 대한 구현은 놀라울 정도로 간단하며 [소스 코드](https://github.com/quilljs/parchment/tree/master/src/attributor)는 다른 이해의 근원이 될 수 있습니다.
 
 ### Attributor
 
