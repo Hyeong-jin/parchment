@@ -248,7 +248,7 @@ console.log(node.outerHTML);  // Will print <div style="text-align: right;"></di
 
 ## Registry
 
-모든 방법은 Parchment에서 액세스 할 수 있습니다. 예. `Parchment.create('bold')`.
+모든 메소드은 Parchment에서 액세스 할 수 있습니다. 예. `Parchment.create('bold')`.
 
 ```typescript
 // 이름 또는 DOM 노드가 지정된 blot을 작성합니다.
