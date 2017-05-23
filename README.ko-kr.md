@@ -10,9 +10,9 @@ Quill이 Parchment의 문서 모델을 사용하는 방법에 대한 안내는 [
 
 ## Blots
 
-Blot은 Parchment 문서의 기본 구성 요소입니다. [Block](#block-blot), [Inline](#inline-blot) 및 [Embed](#embed-blot)와 같은 몇 가지 기본 구현이 제공됩니다. 일반적으로 처음부터 빌드하는 대신 이 중 하나를 확장하는 것이 좋습니다. 시행 후 블롯을 사용하기 전에 등록([registered](#registry))해야합니다.
+Blot은 Parchment 문서의 기본 구성 요소입니다. [Block](#block-blot), [Inline](#inline-blot) 및 [Embed](#embed-blot)와 같은 몇 가지 기본 구현이 제공됩니다. 일반적으로 처음부터 빌드하는 대신 이 중 하나를 확장하는 것이 좋습니다. 구현 후 블롯을 사용하기 전에 등록([registered](#registry))해야합니다.
 
-최소한 Blot은 정적 `blotName`으로 이름을 지정하고 `tagName` 또는 `className`과 연결해야합니다. Blot이 태그와 클래스 모두로 정의 된 경우 클래스가 우선하지만 태그는 폴백으로 사용될 수 있습니다. 블롯은 인라인 또는 블럭인지를 결정하는 [scope](#registry)도 가져야합니다.
+최소한 Blot은 정적 `blotName`으로 이름을 지정하고 `tagName` 또는 `className`과 연결해야합니다. Blot이 태그와 클래스 모두 정의 된 경우 클래스가 우선하지만 태그는 폴백으로 사용될 수 있습니다. 블롯은 인라인인지 또는 블럭인지를 결정하는 [scope](#registry)도 가져야합니다.
 
 ```typescript
 class Blot {
