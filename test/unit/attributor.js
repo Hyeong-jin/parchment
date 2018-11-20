@@ -1,14 +1,16 @@
-"use strict"
+'use strict';
 
 describe('Attributor', function() {
   it('build', function() {
     let blot = Registry.create('inline');
     blot.domNode.style.color = 'red';
     blot.domNode.style.fontSize = '24px';
-    blot.domNode.id = 'blot-test'
+    blot.domNode.id = 'blot-test';
     blot.domNode.classList.add('indent-2');
     blot.attributes.build();
-    expect(Object.keys(blot.attributes.attributes).sort()).toEqual(['color', 'size', 'id', 'indent'].sort());
+    expect(Object.keys(blot.attributes.attributes).sort()).toEqual(
+      ['color', 'size', 'id', 'indent'].sort(),
+    );
   });
 
   it('add to inline', function() {
@@ -25,7 +27,9 @@ describe('Attributor', function() {
     let container = Registry.create(node);
     container.formatAt(0, 1, 'color', 'red');
     container.formatAt(0, 1, 'size', '18px');
-    expect(node.innerHTML).toEqual('<em style="color: red; font-size: 18px;"><strong>0</strong></em>')
+    expect(node.innerHTML).toEqual(
+      '<em style="color: red; font-size: 18px;"><strong>0</strong></em>',
+    );
   });
 
   it('add to text', function() {
@@ -76,7 +80,9 @@ describe('Attributor', function() {
     let blot = Registry.create(node);
     container.appendChild(blot);
     container.formatAt(0, 4, 'bold', false);
-    expect(container.domNode.innerHTML).toEqual('<em style="color: red;">01</em><span style="color: red;">23</span>');
+    expect(container.domNode.innerHTML).toEqual(
+      '<em style="color: red;">01</em><span style="color: red;">23</span>',
+    );
   });
 
   it('remove', function() {
@@ -183,5 +189,14 @@ describe('Attributor', function() {
     let block = Registry.create('block');
     let indentAttributor = Registry.query('indent');
     expect(indentAttributor.value(block.domNode)).toBeFalsy();
+  });
+
+  it('removes quotes from attribute value when checking if canAdd', function () {
+    let node = document.createElement('strong');
+    let familyAttributor = Registry.query('family');
+    expect(familyAttributor.canAdd(node, 'Arial')).toBeTruthy();
+    expect(familyAttributor.canAdd(node, '"Times New Roman"')).toBeTruthy();
+    expect(familyAttributor.canAdd(node, 'monotype')).toBeFalsy();
+    expect(familyAttributor.canAdd(node, '"Lucida Grande"')).toBeFalsy();
   });
 });

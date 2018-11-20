@@ -1,6 +1,6 @@
 {
   "name": "parchment",
-  "version": "1.0.9",
+  "version": "1.1.4",
   "description": "A document model for rich text editors",
   "author": "Jason Chen <jhchen7@gmail.com>",
   "homepage": "http://quilljs.com/docs/parchment",
@@ -12,22 +12,19 @@
   ],
   "types": "dist/src/parchment.d.ts",
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "istanbul": "~0.4.5",
-    "jasmine-core": "^2.5.2",
-    "karma": "^1.6.0",
-    "karma-babel-preprocessor": "^6.0.1",
-    "karma-chrome-launcher": "^2.0.0",
+    "jasmine-core": "^2.9.1",
+    "karma": "^2.0.0",
+    "karma-babel-preprocessor": "^7.0.0",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-sauce-launcher": "^1.1.0",
-    "karma-webpack": "^2.0.3",
-    "ts-loader": "^2.0.3",
-    "typescript": "^2.2.2",
-    "webpack": "^2.4.1"
-  },
-  "engines": {
-    "node": ">= 5.3",
-    "npm": ">= 3.5"
+    "karma-jasmine": "^1.1.1",
+    "karma-sauce-launcher": "^1.2.0",
+    "karma-webpack": "^2.0.9",
+    "ts-loader": "^3.4.0",
+    "typescript": "^2.7.1",
+    "webpack": "^3.10.0"
   },
   "license": "BSD-3-Clause",
   "repository": "https://github.com/quilljs/parchment",
